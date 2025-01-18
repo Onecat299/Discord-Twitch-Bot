@@ -36,7 +36,7 @@ axios.post(`https://id.twitch.tv/oauth2/token?client_id=${twitchClientID}&client
 function sendLiveNotification(streamTitle) {
     let channel = client.channels.cache.get(discordChannelID);
     if (channel) {
-        channel.send(`@everyone ${twitchStreamer} is live now!\n\nStream Title: "${streamTitle}"\nGame: "${game_name}\n\nWatch here: https://www.twitch.tv/${twitchStreamer}`);
+        channel.send(`@everyone ${twitchStreamer} is live now!\n\nStream Title: "${streamTitle}"\n\nWatch here: https://www.twitch.tv/${twitchStreamer}`);
     }
 }
 
