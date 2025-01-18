@@ -36,7 +36,7 @@ axios.post(`https://id.twitch.tv/oauth2/token?client_id=${twitchClientID}&client
 function sendLiveNotification(streamTitle) {
     let channel = client.channels.cache.get(discordChannelID);
     if (channel) {
-        channel.send(`@everyone ${twitchStreamer} is live now!\n\nStream Title: "${streamTitle}"\n\nGame: "${gameName}\nWatch here: https://www.twitch.tv/${twitchStreamer}`);
+        channel.send(`@everyone ${twitchStreamer} is live now!\n\nStream Title: "${streamTitle}"\n\nWatch here: https://www.twitch.tv/${twitchStreamer}`);
     }
 }
 
@@ -77,8 +77,7 @@ setInterval(() => {
                 // Stream just went live
                 isLive = true;
                 let streamTitle = res.data.data[0].title; // Extracting stream title from the response
-                let gameName = res.data.data[0].game_name;
-                sendLiveNotification(streamTitle)(gameName);
+                sendLiveNotification(streamTitle);
             }
         } else {
             // Stream is offline
